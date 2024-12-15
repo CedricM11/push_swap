@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cedricmartin <cedricmartin@student.42.f    +#+  +:+       +#+        */
+/*   By: cedmarti <cedricmartin@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:31:44 by cedmarti          #+#    #+#             */
-/*   Updated: 2024/12/15 11:20:18 by cedricmarti      ###   ########.fr       */
+/*   Updated: 2024/12/15 18:03:02 by cedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
+# include <stdio.h>
 
 typedef struct s_node
 {
@@ -35,6 +36,10 @@ void	rotate(t_node **a);
 void	rotate_both(t_node **a, t_node **b);
 void	reverse_rotate(t_node **a);
 void	reverse_rotate_both(t_node **a, t_node **b);
+
+// sort
+void	insertion_sort(t_node **a, t_node **b);
+void	radix_sort(t_node **a, t_node **b, int size);
 
 // free memory
 void	free_list(t_node *a);
