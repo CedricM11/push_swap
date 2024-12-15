@@ -6,11 +6,13 @@
 #    By: cedricmartin <cedricmartin@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 10:05:31 by cedmarti          #+#    #+#              #
-#    Updated: 2024/12/14 11:23:49 by cedricmarti      ###   ########.fr        #
+#    Updated: 2024/12/15 11:19:30 by cedricmarti      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	srcs/main.c
+SRCS =	srcs/main.c srcs/create_list.c \
+		srcs/swap.c srcs/push.c srcs/rotate.c srcs/reverse_rotate.c \
+		srcs/free.c
 
 OBJS = $(SRCS:.c=.o)
 
