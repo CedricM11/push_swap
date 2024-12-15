@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+         #
+#    By: cedricmartin <cedricmartin@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 10:05:31 by cedmarti          #+#    #+#              #
-#    Updated: 2024/12/13 15:56:10 by cedmarti         ###   ########.fr        #
+#    Updated: 2024/12/14 11:23:49 by cedricmarti      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFLAGS = -g -Wall -Wextra -Werror
 NAME = push_swap
 
 LIB_DIRS = -Lft_printf -Llibft
-LIBS = -lftprintf -l:libft.a
+LIBS = -lftprintf -lft
 INCLUDES = -Ift_printf -Ilibft
 
 GREEN = \033[1;32m
@@ -45,6 +45,7 @@ $(NAME): $(OBJS)
 clean:
 	@rm -f $(OBJS)
 	@$(MAKE) --no-print-directory -C ft_printf clean
+	@$(MAKE) --no-print-directory -C libft clean
 	@echo "$(GREEN)Cleaning done.$(RESET)"
 
 fclean: clean
