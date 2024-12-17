@@ -6,14 +6,14 @@
 #    By: cedmarti <cedricmartin@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 10:05:31 by cedmarti          #+#    #+#              #
-#    Updated: 2024/12/15 18:03:14 by cedmarti         ###   ########.fr        #
+#    Updated: 2024/12/17 21:36:28 by cedmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =	srcs/main.c srcs/create_list.c \
 		srcs/swap.c srcs/push.c srcs/rotate.c srcs/reverse_rotate.c \
-		srcs/insertion_sort.c srcs/radix_sort.c \
-		srcs/free.c \
+		srcs/insertion_sort.c srcs/radix_sort.c srcs/utils_one.c \
+		srcs/turk_sort.c srcs/free.c \
 
 OBJS = $(SRCS:.c=.o)
 

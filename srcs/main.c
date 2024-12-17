@@ -6,7 +6,7 @@
 /*   By: cedmarti <cedricmartin@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:35:15 by cedmarti          #+#    #+#             */
-/*   Updated: 2024/12/15 18:02:46 by cedmarti         ###   ########.fr       */
+/*   Updated: 2024/12/17 21:40:32 by cedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,17 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	create_list(ac, av, &a);
-	radix_sort(&a, &b, ac - 1);
+
+	ft_printf("==== BEFORE sort ====\n");
+	print_list(a);
+	print_list(b);
+
+	turk_sort(&a, &b);
+
 	ft_printf("==== AFTER sort ====\n");
 	print_list(a);
+	print_list(b);
+
 	free_list(a);
 	free_list(b);
 	return (0);

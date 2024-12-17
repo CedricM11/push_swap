@@ -1,5 +1,17 @@
 #include "../push_swap.h"
 
+void	init_node(int nbr, t_node *new)
+{
+	new->value = nbr;
+	new->index = -1;
+	new->push_cost = -1;
+	new->above_mediane = false;
+	new->cheapest = false;
+	new->target = NULL;
+	new->prev = NULL;
+	new->next = NULL;
+}
+
 void	append_node(char *str, t_node **a)
 {
 	int		nbr;
@@ -10,9 +22,7 @@ void	append_node(char *str, t_node **a)
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return ;
-	new->value = nbr;
-	new->prev = NULL;
-	new->next = NULL;
+	init_node(nbr, new);
 	if (*a == NULL)
 		*a = new;
 	else
