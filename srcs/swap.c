@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/16 08:08:06 by cedmarti          #+#    #+#             */
+/*   Updated: 2024/12/18 17:43:41 by cedmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	swap(t_node **a)
@@ -18,8 +30,21 @@ void	swap(t_node **a)
 	*a = second;
 }
 
+void	sa(t_node **a)
+{
+	swap(a);
+	ft_printf("sa\n");
+}
+
+void	sb(t_node **b)
+{
+	swap(b);
+	ft_printf("sb\n");
+}
+
 void	swap_both(t_node **a, t_node **b)
 {
 	swap(a);
 	swap(b);
+	ft_printf("ss\n");
 }

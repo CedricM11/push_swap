@@ -1,6 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create_list.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/16 08:06:37 by cedmarti          #+#    #+#             */
+/*   Updated: 2024/12/20 17:39:17 by cedmarti         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-void	init_node(int nbr, t_node *new)
+void	end_program(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit (1);
+}
+
+static long	ft_atol(const char *str)
+{
+	long	i;
+	long	res;
+	long	signe;
+
+	i = 0;
+	res = 0;
+	signe = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '+')
+		i++;
+	else if (str[i] == '-')
+	{
+		signe = -1;
+		i++;
+	}
+	if (str[i] < '0' || str[i] > '9')
+		end_program();
+	while (str[i] >= '0' && str[i] <= '9')
+		res = (res * 10) + (str[i++] - 48);
+	if (str[i] != '\0')
+		end_program();
+	return (res * signe);
+}
+
+static void	init_node(long nbr, t_node *new)
 {
 	new->value = nbr;
 	new->index = -1;
@@ -8,17 +53,22 @@ void	init_node(int nbr, t_node *new)
 	new->above_mediane = false;
 	new->cheapest = false;
 	new->target = NULL;
-	new->prev = NULL;
 	new->next = NULL;
+	new->prev = NULL;
 }
 
-void	append_node(char *str, t_node **a)
+static void	append_node(char *str, t_node **a)
 {
-	int		nbr;
+	long	nbr;
 	t_node	*current;
 	t_node	*new;
 
-	nbr = ft_atoi(str);
+	nbr = ft_atol(str);
+	if (nbr > INT_MAX || nbr < INT_MIN)
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit (1);
+	}
 	new = malloc(sizeof(t_node));
 	if (!new)
 		return ;
@@ -39,10 +89,11 @@ void	create_list(int ac, char **av, t_node **a)
 {
 	int	i;
 
+	check_syntaxe(av);
 	if (ac == 2)
 	{
-		i = 0;
 		av = ft_split(av[1], 32);
+		i = 0;
 		while (av[i])
 		{
 			append_node(av[i], a);
@@ -59,4 +110,5 @@ void	create_list(int ac, char **av, t_node **a)
 			i++;
 		}
 	}
+	has_duplicates(*a);
 }

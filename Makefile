@@ -3,17 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cedmarti <cedricmartin@student.42.fr>      +#+  +:+       +#+         #
+#    By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 10:05:31 by cedmarti          #+#    #+#              #
-#    Updated: 2024/12/17 21:36:28 by cedmarti         ###   ########.fr        #
+#    Updated: 2024/12/20 17:45:51 by cedmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	srcs/main.c srcs/create_list.c \
+SRCS =	srcs/main.c srcs/create_list.c srcs/check_error.c \
 		srcs/swap.c srcs/push.c srcs/rotate.c srcs/reverse_rotate.c \
-		srcs/insertion_sort.c srcs/radix_sort.c srcs/utils_one.c \
-		srcs/turk_sort.c srcs/free.c \
+		srcs/utils_big_one.c srcs/utils_big_two.c srcs/utils_medium.c \
+		srcs/utils_one.c srcs/utils_two.c \
+		srcs/sort_three.c srcs/medium_sort.c srcs/big_sort.c \
+		srcs/free.c
 
 OBJS = $(SRCS:.c=.o)
 

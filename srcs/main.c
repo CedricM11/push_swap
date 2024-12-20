@@ -3,38 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cedmarti <cedricmartin@student.42.fr>      +#+  +:+       +#+        */
+/*   By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:35:15 by cedmarti          #+#    #+#             */
-/*   Updated: 2024/12/17 21:40:32 by cedmarti         ###   ########.fr       */
+/*   Updated: 2024/12/20 14:48:50 by cedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	print_node(t_node *a)
-{
-	ft_printf("value : %d\n", a->value);
-	ft_printf("prev  : %p\n", a->prev);
-	ft_printf("next  : %p\n", a->next);
-}
-
-void	print_list(t_node *a)
-{
-	int	i;
-
-	if (a == NULL)
-		ft_printf("[Liste vide]\n\n");
-	i = 1;
-	while (a)
-	{
-		ft_printf("[Node %d]:\n", i);
-		print_node(a);
-		ft_printf("\n");
-		i++;
-		a = a->next;
-	}
-}
 
 int	main(int ac, char **av)
 {
@@ -43,18 +19,20 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
+	if (ac < 2 || av[1][0] == '\0')
+		return (1);
 	create_list(ac, av, &a);
-
-	ft_printf("==== BEFORE sort ====\n");
-	print_list(a);
-	print_list(b);
-
-	turk_sort(&a, &b);
-
-	ft_printf("==== AFTER sort ====\n");
-	print_list(a);
-	print_list(b);
-
+	if (is_sorted(a) == 0)
+	{
+		if (list_len(a) == 2)
+			sa(&a);
+		else if (list_len(a) == 3)
+			sort_three(&a);
+		else if (list_len(a) <= 200)
+			medium_sort(&a, &b);
+		else
+			big_sort(&a, &b);
+	}
 	free_list(a);
 	free_list(b);
 	return (0);
