@@ -1,3 +1,4 @@
 *.a
 *.o
 push_swap
+.DS_Store
