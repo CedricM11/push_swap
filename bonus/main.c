@@ -6,7 +6,7 @@
 /*   By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:42:56 by cedmarti          #+#    #+#             */
-/*   Updated: 2024/12/26 15:27:05 by cedmarti         ###   ########.fr       */
+/*   Updated: 2024/12/28 11:40:05 by cedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,20 @@
 	- Free la copie de A
 */
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}
+
 void	print_list(t_node *a)
 {
 	t_node	*current;
@@ -37,55 +51,75 @@ void	print_list(t_node *a)
 	}
 }
 
-void	ft_push_swap(t_node **a, t_node **b)
+void	make_move(t_node **a, t_node **b, char *move)
 {
-	if (is_sorted(*a) == 0)
+	if (ft_strcmp(move, "sa\n") == 0)
+		swap(a);
+	else if (ft_strcmp(move, "sb\n") == 0)
+		swap(b);
+	else if (ft_strcmp(move, "ss") == 0)
 	{
-		if (list_len(*a) == 2)
-			sa(a);
-		else if (list_len(*a) == 3)
-			sort_three(a);
-		else if (list_len(*a) <= 200)
-			medium_sort(a, b);
-		else
-			big_sort(a, b);
+		swap(a);
+		swap(b);
+	}
+	else if (ft_strcmp(move, "pa\n") == 0)
+		push(b, a);
+	else if (ft_strcmp(move, "pb\n") == 0)
+		push(a, b);
+	else if (ft_strcmp(move, "ra\n") == 0)
+		rotate(a);
+	else if (ft_strcmp(move, "rb\n") == 0)
+		rotate(b);
+	else if (ft_strcmp(move, "rr\n") == 0)
+	{
+		rotate(a);
+		rotate(b);
+	}
+	else if (ft_strcmp(move, "rra\n") == 0)
+		reverse_rotate(a);
+	else if (ft_strcmp(move, "rrb\n") == 0)
+		reverse_rotate(b);
+	else if (ft_strcmp(move, "rrr\n") == 0)
+	{
+		reverse_rotate(a);
+		reverse_rotate(b);
 	}
 }
 
-void	read_move()
+void	read_move(t_node **a, t_node **b)
 {
 	char	*move;
 
-	move = get_next_line(0);
-	ft_printf("move : [%s]\n", move);
-	/*while (1)
+	while (1)
 	{
 		move = get_next_line(0);
-		if (move == NULL)
+		if (move[0] == '\n')
 			break ;
 		else
 			make_move(a, b, move);
-	}*/
-	free(move);
+		free(move);
+	}
+}
+
+void	checker(t_node *a, t_node *b)
+{
+	if (is_sorted(a) && b == NULL)
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 }
 
 int	main(int ac, char **av)
 {
-	t_node	*a;
-	t_node	*b;
-	t_node	*copy_a;
-	t_node	*copy_b;
+	t_node	*bonus_a;
+	t_node	*bonus_b;
 
-	a = NULL;
-	b = NULL;
-	copy_a = NULL;
-	copy_b = NULL;
-	create_list(ac, av, &a);
-	create_list(ac, av, &copy_a);
-	ft_push_swap(&a, &b);
-	read_move();
-	free_list(a);
-	free_list(copy_a);
-	free_list(copy_b);
-	free_list(b);
+	bonus_a = NULL;
+	bonus_b = NULL;
+	create_list(ac, av, &bonus_a);
+	read_move(&bonus_a, &bonus_b);
+	print_list(bonus_a);
+	checker(bonus_a, bonus_b);
+	free_list(bonus_a);
+	free_list(bonus_b);
 }

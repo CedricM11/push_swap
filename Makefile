@@ -6,7 +6,7 @@
 #    By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/13 10:05:31 by cedmarti          #+#    #+#              #
-#    Updated: 2024/12/26 15:04:03 by cedmarti         ###   ########.fr        #
+#    Updated: 2024/12/28 11:44:28 by cedmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ CC = gcc
 CFLAGS = -g -Wall -Wextra -Werror
 
 NAME = push_swap
+B_NAME = checker
 
 LIB_DIRS = -Lft_printf -Llibft
 LIBS = -lftprintf -lft
@@ -61,7 +62,7 @@ bonus: $(B_OBJS)
 	@$(MAKE) --no-print-directory -C ft_printf
 	@$(MAKE) --no-print-directory -C libft
 	@echo "$(YELLOW)Linking objects...$(RESET)"
-	@$(CC) $(B_OBJS) $(LIB_DIRS) $(LIBS) -o $(NAME)
+	@$(CC) $(B_OBJS) $(LIB_DIRS) $(LIBS) -o $(B_NAME)
 	@echo "$(GREEN)Bonus compilation completed successfully!$(RESET)"
 
 clean:
@@ -71,7 +72,7 @@ clean:
 	@echo "$(GREEN)Cleaning done.$(RESET)"
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(B_NAME)
 	@$(MAKE) --no-print-directory -C ft_printf fclean
 	@$(MAKE) --no-print-directory -C libft fclean
 	@echo "$(GREEN)Full clean done.$(RESET)"
