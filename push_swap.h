@@ -6,7 +6,7 @@
 /*   By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 15:31:44 by cedmarti          #+#    #+#             */
-/*   Updated: 2024/12/20 14:45:44 by cedmarti         ###   ########.fr       */
+/*   Updated: 2024/12/29 16:24:15 by cedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,12 @@ void	big_sort(t_node **a, t_node **b);
 // free memory
 void	free_list(t_node *a);
 void	free_split(char **av);
+
+// bonus
+int		ft_strcmp(char *s1, char *s2);
+void	quiet_swap_both(t_node **a, t_node **b);
+void	quiet_rotate_both(t_node **a, t_node **b);
+void	quiet_rev_rotate_both(t_node **a, t_node **b);
+void	wrong_move(t_node *a, t_node *b);
 
 #endif
