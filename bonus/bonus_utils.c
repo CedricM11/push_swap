@@ -6,12 +6,11 @@
 /*   By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 10:59:39 by cedmarti          #+#    #+#             */
-/*   Updated: 2024/12/30 13:27:46 by cedmarti         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:39:48 by cedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "../bonus/get_next_line.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

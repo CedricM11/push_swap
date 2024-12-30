@@ -6,12 +6,11 @@
 /*   By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:08:46 by cedmarti          #+#    #+#             */
-/*   Updated: 2024/12/30 13:31:13 by cedmarti         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:39:17 by cedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "../push_swap.h"
 
 char	*fill_stock(int fd, char *stock, char *buffer)
 {
