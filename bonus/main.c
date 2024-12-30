@@ -6,7 +6,7 @@
 /*   By: cedmarti <cedmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 11:42:56 by cedmarti          #+#    #+#             */
-/*   Updated: 2024/12/29 16:21:32 by cedmarti         ###   ########.fr       */
+/*   Updated: 2024/12/30 13:27:28 by cedmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	make_move(t_node **a, t_node **b, char *move)
 	else if (ft_strcmp(move, "rrr\n") == 0)
 		quiet_rev_rotate_both(a, b);
 	else
-		wrong_move(*a, *b);
+		wrong_move(*a, *b, move);
 }
 
 void	read_move(t_node **a, t_node **b)
@@ -62,13 +62,12 @@ void	read_move(t_node **a, t_node **b)
 	while (1)
 	{
 		move = get_next_line(0);
-		if (move[0] == '\n')
+		if (move == NULL)
 			break ;
 		else
 			make_move(a, b, move);
 		free(move);
 	}
-	free(move);
 }
 
 void	checker(t_node *a, t_node *b)
